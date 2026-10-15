@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome Icons for UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 1. LOGIN PAGE SECTION -->
+    <div id="login-page" class="center-container">
+        <div class="card login-card">
+            <h2><i class="fa-solid fa-list-check"></i> Task Manager</h2>
+            <p>Welcome back! Please login to continue.</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email Address" required value="student@college.edu">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required value="123456">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. DASHBOARD PAGE SECTION (Hidden by default) -->
+    <div id="dashboard-page" class="hidden">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo"><i class="fa-solid fa-list-check"></i> TaskFlow</div>
+            <div class="user-info">
+                <span>Welcome, <strong>Student User</strong></span>
+                <button onclick="logout()" class="btn btn-small">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container">
+            <!-- Header & Add Task Form -->
+            <div class="header-action">
+                <h2>My Tasks</h2>
+                <button onclick="toggleTaskForm()" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add New Task</button>
+            </div>
+
+            <!-- Task Input Form -->
+            <div id="task-form-card" class="card hidden">
+                <h3>Create New Task</h3>
+                <form id="add-task-form">
+                    <input type="text" id="task-title" placeholder="Task Title (e.g. Prepare Presentation)" required>
+                    <select id="task-priority">
+                        <option value="Low">Low Priority</option>
+                        <option value="Medium" selected>Medium Priority</option>
+                        <option value="High">High Priority</option>
+                    </select>
+                    <button type="submit" class="btn btn-success">Save Task</button>
+                </form>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <p>Total Tasks</p>
+                    <h3 id="total-count">0</h3>
+                </div>
+                <div class="stat-box">
+                    <p>Completed</p>
+                    <h3 id="completed-count">0</h3>
+                </div>
+            </div>
+
+            <!-- Task List -->
+            <div class="task-list-container">
+                <ul id="task-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
